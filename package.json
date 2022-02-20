@@ -8,7 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@headlessui/react": "^1.4.2",
+    "@headlessui/react": "^1.4.3",
+    "@heroicons/react": "^1.0.5",
     "axios": "^0.21.1",
     "next": "^12.0.4",
     "react": "^17.0.2",
@@ -18,7 +19,9 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.12.1",
     "@next/eslint-plugin-next": "^10.0.4",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.17.0",

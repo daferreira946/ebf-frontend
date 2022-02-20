@@ -1,27 +1,27 @@
-import ApplicationLogo from '@/components/ApplicationLogo'
-import AuthCard from '@/components/AuthCard'
-import AuthSessionStatus from '@/components/AuthSessionStatus'
-import AuthValidationErrors from '@/components/AuthValidationErrors'
-import Button from '@/components/Button'
-import GuestLayout from '@/components/Layouts/GuestLayout'
-import Input from '@/components/Input'
-import Label from '@/components/Label'
-import Link from 'next/link'
-import { useAuth } from '@/hooks/auth'
-import { useState } from 'react'
+import ApplicationLogo from '@/components/ApplicationLogo';
+import AuthCard from '@/components/AuthCard';
+import AuthSessionStatus from '@/components/AuthSessionStatus';
+import AuthValidationErrors from '@/components/AuthValidationErrors';
+import Button from '@/components/Button';
+import GuestLayout from '@/components/Layouts/GuestLayout';
+import Input from '@/components/Input';
+import Label from '@/components/Label';
+import Link from 'next/link';
+import { useAuth } from '@/hooks/auth';
+import { useState } from 'react';
 
 const ForgotPassword = () => {
-    const { forgotPassword } = useAuth({ middleware: 'guest' })
+    const { forgotPassword } = useAuth({ middleware: 'guest' });
 
-    const [email, setEmail] = useState('')
-    const [errors, setErrors] = useState([])
-    const [status, setStatus] = useState(null)
+    const [username, setUsername] = useState('');
+    const [errors, setErrors] = useState([]);
+    const [status, setStatus] = useState(null);
 
     const submitForm = event => {
-        event.preventDefault()
+        event.preventDefault();
 
-        forgotPassword({ email, setErrors, setStatus })
-    }
+        forgotPassword({ username, setErrors, setStatus });
+    };
 
     return (
         <GuestLayout>
@@ -33,7 +33,6 @@ const ForgotPassword = () => {
                         </a>
                     </Link>
                 }>
-
                 <div className="mb-4 text-sm text-gray-600">
                     Forgot your password? No problem. Just let us know your
                     email address and we will email you a password reset link
@@ -41,7 +40,7 @@ const ForgotPassword = () => {
                 </div>
 
                 {/* Session Status */}
-                <AuthSessionStatus className="mb-4" status={status} />
+                <AuthSessionStatus className="bg-green" status={status} />
 
                 {/* Validation Errors */}
                 <AuthValidationErrors className="mb-4" errors={errors} />
@@ -49,14 +48,14 @@ const ForgotPassword = () => {
                 <form onSubmit={submitForm}>
                     {/* Email Address */}
                     <div>
-                        <Label htmlFor="email">Email</Label>
+                        <Label htmlFor="username">Username</Label>
                         <Input
-                            id="email"
-                            type="email"
-                            name="email"
-                            value={email}
+                            id="username"
+                            type="text"
+                            name="username"
+                            value={username}
                             className="block mt-1 w-full"
-                            onChange={event => setEmail(event.target.value)}
+                            onChange={event => setUsername(event.target.value)}
                             required
                             autoFocus
                         />
@@ -68,7 +67,7 @@ const ForgotPassword = () => {
                 </form>
             </AuthCard>
         </GuestLayout>
-    )
-}
+    );
+};
 
-export default ForgotPassword
+export default ForgotPassword;

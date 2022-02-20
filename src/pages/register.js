@@ -1,31 +1,37 @@
-import ApplicationLogo from '@/components/ApplicationLogo'
-import AuthCard from '@/components/AuthCard'
-import AuthValidationErrors from '@/components/AuthValidationErrors'
-import Button from '@/components/Button'
-import GuestLayout from '@/components/Layouts/GuestLayout'
-import Input from '@/components/Input'
-import Label from '@/components/Label'
-import Link from 'next/link'
-import { useAuth } from '@/hooks/auth'
-import { useState } from 'react'
+import ApplicationLogo from '@/components/ApplicationLogo';
+import AuthCard from '@/components/AuthCard';
+import AuthValidationErrors from '@/components/AuthValidationErrors';
+import Button from '@/components/Button';
+import GuestLayout from '@/components/Layouts/GuestLayout';
+import Input from '@/components/Input';
+import Label from '@/components/Label';
+import Link from 'next/link';
+import { useAuth } from '@/hooks/auth';
+import { useState } from 'react';
 
 const Register = () => {
     const { register } = useAuth({
         middleware: 'guest',
         redirectIfAuthenticated: '/dashboard',
-    })
+    });
 
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [password_confirmation, setPasswordConfirmation] = useState('')
-    const [errors, setErrors] = useState([])
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [password_confirmation, setPasswordConfirmation] = useState('');
+    const [errors, setErrors] = useState([]);
 
     const submitForm = event => {
-        event.preventDefault()
+        event.preventDefault();
 
-        register({ name, email, password, password_confirmation, setErrors })
-    }
+        register({
+            username,
+            email,
+            password,
+            password_confirmation,
+            setErrors,
+        });
+    };
 
     return (
         <GuestLayout>
@@ -37,21 +43,20 @@ const Register = () => {
                         </a>
                     </Link>
                 }>
-
                 {/* Validation Errors */}
                 <AuthValidationErrors className="mb-4" errors={errors} />
 
                 <form onSubmit={submitForm}>
                     {/* Name */}
                     <div>
-                        <Label htmlFor="name">Name</Label>
+                        <Label htmlFor="username">Username</Label>
 
                         <Input
-                            id="name"
+                            id="username"
                             type="text"
-                            value={name}
+                            value={username}
                             className="block mt-1 w-full"
-                            onChange={event => setName(event.target.value)}
+                            onChange={event => setUsername(event.target.value)}
                             required
                             autoFocus
                         />
@@ -116,7 +121,7 @@ const Register = () => {
                 </form>
             </AuthCard>
         </GuestLayout>
-    )
-}
+    );
+};
 
-export default Register
+export default Register;

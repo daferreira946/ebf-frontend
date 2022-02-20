@@ -14,6 +14,6 @@ const AuthValidationErrors = ({ errors = [], ...props }) => (
             </div>
         )}
     </>
-)
+);
 
-export default AuthValidationErrors
+export default AuthValidationErrors;

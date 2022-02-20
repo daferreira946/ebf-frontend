@@ -1,17 +1,17 @@
-import ApplicationLogo from '@/components/ApplicationLogo'
-import AuthCard from '@/components/AuthCard'
-import Button from '@/components/Button'
-import GuestLayout from '@/components/Layouts/GuestLayout'
-import Link from 'next/link'
-import { useAuth } from '@/hooks/auth'
-import { useState } from 'react'
+import ApplicationLogo from '@/components/ApplicationLogo';
+import AuthCard from '@/components/AuthCard';
+import Button from '@/components/Button';
+import GuestLayout from '@/components/Layouts/GuestLayout';
+import Link from 'next/link';
+import { useAuth } from '@/hooks/auth';
+import { useState } from 'react';
 
 const VerifyEmail = () => {
     const { logout, resendEmailVerification } = useAuth({
         middleware: 'auth',
-    })
+    });
 
-    const [status, setStatus] = useState(null)
+    const [status, setStatus] = useState(null);
 
     return (
         <GuestLayout>
@@ -23,7 +23,6 @@ const VerifyEmail = () => {
                         </a>
                     </Link>
                 }>
-
                 <div className="mb-4 text-sm text-gray-600">
                     Thanks for signing up! Before getting started, could you
                     verify your email address by clicking on the link we just
@@ -53,7 +52,7 @@ const VerifyEmail = () => {
                 </div>
             </AuthCard>
         </GuestLayout>
-    )
-}
+    );
+};
 
-export default VerifyEmail
+export default VerifyEmail;

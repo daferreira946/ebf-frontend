@@ -1,27 +1,27 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
-        const initialProps = await Document.getInitialProps(ctx)
-        return { ...initialProps }
+        const initialProps = await Document.getInitialProps(ctx);
+        return { ...initialProps };
     }
 
     render() {
         return (
-            <Html>
+            <Html className="h-full bg-gray-100">
                 <Head>
                     <link
                         href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
                         rel="stylesheet"
                     />
                 </Head>
-                <body className="antialiased">
+                <body className="antialiased h-full">
                     <Main />
                     <NextScript />
                 </body>
             </Html>
-        )
+        );
     }
 }
 
-export default MyDocument
+export default MyDocument;

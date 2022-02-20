@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 const NavLink = ({ active = false, children, ...props }) => (
     <Link {...props}>
@@ -11,6 +11,6 @@ const NavLink = ({ active = false, children, ...props }) => (
             {children}
         </a>
     </Link>
-)
+);
 
-export default NavLink
+export default NavLink;

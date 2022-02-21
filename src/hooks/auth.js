@@ -110,7 +110,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             await revalidate();
         }
 
-        window.location.pathname = '/login';
+        window.location.pathname = '/';
     };
 
     useEffect(() => {

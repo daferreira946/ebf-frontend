@@ -1,11 +1,11 @@
-import AppLayout from '@/components/Layouts/AppLayout';
 import Head from 'next/head';
+import AppLayout from '@/components/Layouts/AppLayout';
 
 const Dashboard = () => {
     return (
         <AppLayout
             header={
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
+                <h2 className="text-2xl font-semibold text-gray-900">
                     Dashboard
                 </h2>
             }>

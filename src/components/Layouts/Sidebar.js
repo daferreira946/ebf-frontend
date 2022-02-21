@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
-import Navigation2 from '@/components/Layouts/Navigation2';
+import Navigation from '@/components/Layouts/Navigation';
 import UserMenu from '@/components/UserMenu';
 
 const Sidebar = ({
@@ -68,7 +68,7 @@ const Sidebar = ({
                                         alt="Workflow"
                                     />
                                 </div>
-                                <Navigation2 navigation={navigation} />
+                                <Navigation navigation={navigation} />
                             </div>
                             <UserMenu
                                 user={user}
@@ -94,7 +94,7 @@ const Sidebar = ({
                                 alt="Workflow"
                             />
                         </div>
-                        <Navigation2 navigation={navigation} />
+                        <Navigation navigation={navigation} />
                     </div>
                     <UserMenu user={user} userNavigation={userNavigation} />
                 </div>

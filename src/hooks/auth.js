@@ -48,7 +48,10 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
             .post('/login', props)
             .then(() => revalidate())
             .catch(error => {
-                if (error.response.status !== 422) {
+                if (
+                    error.response.status !== 422 &&
+                    error.response.status !== 401
+                ) {
                     throw error;
                 }
 

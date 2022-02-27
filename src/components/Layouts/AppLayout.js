@@ -1,15 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useAuth } from '@/hooks/auth';
-import {
-    CalendarIcon,
-    ChartBarIcon,
-    FolderIcon,
-    HomeIcon,
-    InboxIcon,
-    MenuIcon,
-    UserAddIcon,
-} from '@heroicons/react/outline';
+import { HomeIcon, MenuIcon, UserAddIcon } from '@heroicons/react/outline';
 import Sidebar from '@/components/Layouts/Sidebar';
 import { useRouter } from 'next/router';
 
@@ -30,30 +22,6 @@ const AppLayout = ({ header, children }) => {
             href: '/register',
             icon: UserAddIcon,
             current: router.pathname === '/register',
-        },
-        {
-            name: 'Projects',
-            href: '#',
-            icon: FolderIcon,
-            current: router.pathname === '/projects',
-        },
-        {
-            name: 'Calendar',
-            href: '#',
-            icon: CalendarIcon,
-            current: router.pathname === '/calendar',
-        },
-        {
-            name: 'Documents',
-            href: '#',
-            icon: InboxIcon,
-            current: router.pathname === '/documents',
-        },
-        {
-            name: 'Reports',
-            href: '#',
-            icon: ChartBarIcon,
-            current: router.pathname === '/reports',
         },
     ];
 

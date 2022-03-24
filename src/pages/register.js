@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import AppLayout from '@/components/Layouts/AppLayout';
-import Link from 'next/link';
 import AuthValidationErrors from '@/components/AuthValidationErrors';
 import Label from '@/components/Label';
 import Input from '@/components/Input';
@@ -43,91 +42,106 @@ const Register = () => {
             </Head>
 
             <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 bg-white border-b border-gray-200">
+                <div className="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
+                    <div className="md:grid md:grid-cols-3 md:gap-6">
+                        <div className="md:col-span-1">
+                            <h3 className="text-lg font-medium leading-6 text-gray-900">
+                                Personal Information
+                            </h3>
+                            <p className="mt-1 text-sm text-gray-500">
+                                Use a permanent address where you can receive
+                                mail.
+                            </p>
+                        </div>
+                        <div className="mt-5 md:mt-0 md:col-span-2">
                             <AuthValidationErrors
                                 className="mb-4"
                                 errors={errors}
                             />
                             <form onSubmit={submitForm}>
-                                {/* Username */}
-                                <div>
-                                    <Label htmlFor="username">Username</Label>
+                                <div className="grid grid-cols-6 gap-6">
+                                    <div className="col-span-6 sm:col-span-3">
+                                        <Label
+                                            htmlFor="username"
+                                            className="block text-sm font-medium text-gray-700">
+                                            Username
+                                        </Label>
+                                        <Input
+                                            type="text"
+                                            name="username"
+                                            id="username"
+                                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                            value={username}
+                                            onChange={event =>
+                                                setUsername(event.target.value)
+                                            }
+                                            required
+                                            autoFocus
+                                        />
+                                    </div>
 
-                                    <Input
-                                        id="username"
-                                        type="text"
-                                        value={username}
-                                        className="block mt-1 w-full"
-                                        onChange={event =>
-                                            setUsername(event.target.value)
-                                        }
-                                        required
-                                        autoFocus
-                                    />
+                                    <div className="col-span-6 sm:col-span-3">
+                                        <Label
+                                            htmlFor="email"
+                                            className="block text-sm font-medium text-gray-700">
+                                            Email
+                                        </Label>
+                                        <Input
+                                            type="text"
+                                            name="email"
+                                            id="email"
+                                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                            value={email}
+                                            onChange={event =>
+                                                setEmail(event.target.value)
+                                            }
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="col-span-6 sm:col-span-3">
+                                        <Label
+                                            htmlFor="password"
+                                            className="block text-sm font-medium text-gray-700">
+                                            Password
+                                        </Label>
+                                        <Input
+                                            type="password"
+                                            name="password"
+                                            id="password"
+                                            autoComplete="new-password"
+                                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                            value={password}
+                                            onChange={event =>
+                                                setPassword(event.target.value)
+                                            }
+                                            required
+                                        />
+                                    </div>
+
+                                    <div className="col-span-6 sm:col-span-3">
+                                        <Label
+                                            htmlFor="password_confirmation"
+                                            className="block text-sm font-medium text-gray-700">
+                                            Confirm Password
+                                        </Label>
+                                        <Input
+                                            type="password"
+                                            name="password_confirmation"
+                                            id="password_confirmation"
+                                            autoComplete="street-address"
+                                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                            value={password_confirmation}
+                                            onChange={event =>
+                                                setPasswordConfirmation(
+                                                    event.target.value,
+                                                )
+                                            }
+                                            required
+                                        />
+                                    </div>
                                 </div>
-
-                                {/* Email Address */}
-                                <div className="mt-4">
-                                    <Label htmlFor="email">Email</Label>
-
-                                    <Input
-                                        id="email"
-                                        type="email"
-                                        value={email}
-                                        className="block mt-1 w-full"
-                                        onChange={event =>
-                                            setEmail(event.target.value)
-                                        }
-                                        required
-                                    />
-                                </div>
-
-                                {/* Password */}
-                                <div className="mt-4">
-                                    <Label htmlFor="password">Password</Label>
-
-                                    <Input
-                                        id="password"
-                                        type="password"
-                                        value={password}
-                                        className="block mt-1 w-full"
-                                        onChange={event =>
-                                            setPassword(event.target.value)
-                                        }
-                                        required
-                                        autoComplete="new-password"
-                                    />
-                                </div>
-
-                                {/* Confirm Password */}
-                                <div className="mt-4">
-                                    <Label htmlFor="password_confirmation">
-                                        Confirm Password
-                                    </Label>
-
-                                    <Input
-                                        id="password_confirmation"
-                                        type="password"
-                                        value={password_confirmation}
-                                        className="block mt-1 w-full"
-                                        onChange={event =>
-                                            setPasswordConfirmation(
-                                                event.target.value,
-                                            )
-                                        }
-                                        required
-                                    />
-                                </div>
-
                                 <div className="flex items-center justify-end mt-4">
-                                    <Link href="/login">
-                                        <a className="underline text-sm text-gray-600 hover:text-gray-900">
-                                            Already registered?
-                                        </a>
-                                    </Link>
-
                                     <Button className="ml-4">Register</Button>
                                 </div>
                             </form>

@@ -35,8 +35,8 @@ const PasswordReset = () => {
     };
 
     useEffect(() => {
-        setUsername(router.query.email || '');
-    }, [router.query.email]);
+        setUsername(router.query.username || '');
+    }, [router.query.username]);
 
     return (
         <GuestLayout>

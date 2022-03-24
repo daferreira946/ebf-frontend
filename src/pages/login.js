@@ -27,7 +27,9 @@ const Login = () => {
 
     useEffect(() => {
         if (router.query.reset?.length > 0 && errors.length === 0) {
-            setStatus(Buffer.from(router.query.reset).toString('base64'));
+            setStatus(
+                Buffer.from(router.query.reset, 'base64').toString('ascii'),
+            );
         } else {
             setStatus(null);
         }
